@@ -15325,7 +15325,25 @@ void Unit::SetMaxHealth(uint32 val)
 
     if (val < health) SetHealth(val);
 }
+uint32 Unit::GetPowerIndexByClass(uint32 powerId, uint32 classId) const
+{
+    ChrClassesEntry const* m_class = sChrClassesStore.LookupEntry(classId);
+    ASSERT(m_class && "Class not found");
+    uint32 index = 0;
+    for (uint32 i = 0; i <= sChrPowerTypesStore.GetNumRows(); i++)
+    {
+    ChrPowerTypesEntry const* cEntry = sChrPowerTypesStore.LookupEntry(i);
+    if (!cEntry)
+        continue;
+    if (classId != cEntry->classId)
+        continue;
+    if (powerId == cEntry->power)
 
+        return index;
+    index++;
+    }
+    return 0;
+}
 void Unit::SetPower(Powers power, uint32 val)
 {
     if (GetPower(power) == val) return;

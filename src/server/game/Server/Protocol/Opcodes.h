@@ -189,7 +189,7 @@ enum Opcodes
     CMSG_CHANNEL_UNBAN                               = 0x00, /* old 0x0076E */
     CMSG_CHANNEL_ANNOUNCEMENTS                       = 0x00, /* old 0x0056E */
     CMSG_CHANNEL_MODERATE                            = 0x00, /* old 0x0074E */
-    SMSG_UPDATE_OBJECT                               = 0x00, /* old 0x04606 */
+    SMSG_UPDATE_OBJECT                               = 0x00D63, /* old 0x04606 */
     SMSG_DESTROY_OBJECT                              = 0x04DAF,
     CMSG_USE_ITEM                                    = 0x00, /* old 0x05A84 */
     CMSG_OPEN_ITEM                                   = 0x00, /* old 0x01824 */
@@ -241,7 +241,7 @@ enum Opcodes
     MSG_MOVE_SET_FACING                              = 0x02325,
     MSG_MOVE_SET_PITCH                               = 0x00, /* old 0x064A1 */
     MSG_MOVE_WORLDPORT_ACK                           = 0x00, /* old 0x04334 */
-    SMSG_MONSTER_MOVE                                = 0x00, /* old 0x060A0 */
+    SMSG_MONSTER_MOVE                                = 0x5CF570, /* old 0x060A0 */
     SMSG_MOVE_WATER_WALK                             = 0x00,
     SMSG_MOVE_LAND_WALK                              = 0x00,
     MSG_MOVE_SET_RAW_POSITION_ACK                    = 0x00,
@@ -298,7 +298,7 @@ enum Opcodes
     OBSOLETE_DROP_ITEM                               = 0x00,
     CMSG_DESTROYITEM                                 = 0x00,
     SMSG_INVENTORY_CHANGE_FAILURE                    = 0x00, /* old 0x000A4 */
-    SMSG_OPEN_CONTAINER                              = 0x00,
+    SMSG_OPEN_CONTAINER                              = 0x045FB,
     CMSG_INSPECT                                     = 0x00, /* old 0x04222 */
     SMSG_INSPECT                                     = 0x00, /* old 0x03026 */
     CMSG_INITIATE_TRADE                              = 0x00, /* old 0x074A1 */
@@ -389,8 +389,8 @@ enum Opcodes
     SMSG_DUEL_WINNER                                 = 0x00, /* old 0x07086 */
     CMSG_DUEL_ACCEPTED                               = 0x00, /* old 0x03824 */
     CMSG_DUEL_CANCELLED                              = 0x00, /* old 0x034A6 */
-    SMSG_MOUNTRESULT                                 = 0x00, /* old 0x07A00 */
-    SMSG_DISMOUNTRESULT                              = 0x00, /* old 0x046A2 */
+    SMSG_MOUNTRESULT                                 = 0x00599, /* old 0x07A00 */
+    SMSG_DISMOUNTRESULT                              = 0x06D41, /* old 0x046A2 */
     SMSG_PUREMOUNT_CANCELLED_OBSOLETE                = 0x00,
     CMSG_MOUNTSPECIAL_ANIM                           = 0x00, /* old 0x01A00 */
     SMSG_MOUNTSPECIAL_ANIM                           = 0x0656B, /* old 0x07AA6 */
@@ -452,14 +452,14 @@ enum Opcodes
     SMSG_TAXINODE_STATUS                             = 0x00,
     CMSG_TAXIQUERYAVAILABLENODES                     = 0x00,
     CMSG_ACTIVATETAXI                                = 0x00,
-    SMSG_ACTIVATETAXIREPLY                           = 0x00,
-    SMSG_NEW_TAXI_PATH                               = 0x00,
+    SMSG_ACTIVATETAXIREPLY                           = 0x00515,
+    SMSG_NEW_TAXI_PATH                               = 0x02589,
     CMSG_TRAINER_LIST                                = 0x00,
     SMSG_TRAINER_LIST                                = 0x00, /* old 0x04C80 */
     CMSG_TRAINER_BUY_SPELL                           = 0x00, /* old 0x07EA0 */
     SMSG_TRAINER_BUY_RESULT                          = 0x00, /* old 0x0460C - Possible - or 0x03C20 */
     CMSG_BINDER_ACTIVATE                             = 0x00,
-    SMSG_PLAYERBINDERROR                             = 0x00,
+    SMSG_PLAYERBINDERROR                             = 0x045E3,
     CMSG_BANKER_ACTIVATE                             = 0x00,
     SMSG_SHOW_BANK                                   = 0x00, /* old 0x04A24 */
     CMSG_BUY_BANK_SLOT                               = 0x00,
@@ -558,7 +558,7 @@ enum Opcodes
     MSG_CORPSE_QUERY                                 = 0x00, /* old 0x05006 */
     CMSG_GMTICKET_DELETETICKET                       = 0x00, /* old 0x046AC */
     SMSG_GMTICKET_DELETETICKET                       = 0x00, /* old 0x060A6 */
-    SMSG_CHAT_WRONG_FACTION                          = 0x00,
+    SMSG_CHAT_WRONG_FACTION                          = 0x04DFD,
     CMSG_GMTICKET_SYSTEMSTATUS                       = 0x00,
     SMSG_GMTICKET_SYSTEMSTATUS                       = 0x02DFB,
     CMSG_SPIRIT_HEALER_ACTIVATE                      = 0x00, /* old 0x04024 */
@@ -958,7 +958,7 @@ enum Opcodes
     CMSG_IGNORE_REQUIREMENTS_CHEAT                   = 0x00,
     SMSG_IGNORE_REQUIREMENTS_CHEAT                   = 0x00,
     SMSG_SPELL_CHANCE_PROC_LOG                       = 0x00,
-    CMSG_MOVE_SET_RUN_SPEED                          = 0x00,
+    CMSG_MOVE_SET_RUN_SPEED                          = 0x01CB0,
     SMSG_DISMOUNT                                    = 0x005B9,
     MSG_MOVE_UPDATE_CAN_FLY                          = 0x00,
     MSG_RAID_READY_CHECK_CONFIRM                     = 0x06547,
@@ -1144,7 +1144,7 @@ enum Opcodes
     SMSG_CALENDAR_UPDATE_INVITE_LIST2                = 0x00,
     CMSG_UPDATE_MISSILE_TRAJECTORY                   = 0x00,
     SMSG_UPDATE_ACCOUNT_DATA_COMPLETE                = 0x00, /* old 0x040A5 */
-    SMSG_TRIGGER_MOVIE                               = 0x00, /* old 0x03AA6 */
+    SMSG_TRIGGER_MOVIE                               = 0x01461, /* old 0x03AA6 */
     CMSG_COMPLETE_MOVIE                              = 0x00, /* old 0x030A0 */
     CMSG_SET_GLYPH_SLOT                              = 0x00,
     CMSG_SET_GLYPH                                   = 0x00,
@@ -1161,8 +1161,8 @@ enum Opcodes
     CMSG_SET_CRITERIA_CHEAT                          = 0x00,
     SMSG_CALENDAR_UPDATE_INVITE_LIST3                = 0x00,
     CMSG_UNITANIMTIER_CHEAT                          = 0x00,
-    CMSG_CHAR_CUSTOMIZE                              = 0x00,
-    SMSG_CHAR_CUSTOMIZE                              = 0x00,
+    CMSG_CHAR_CUSTOMIZE                              = 0x00D01,
+    SMSG_CHAR_CUSTOMIZE                              = 0x06D95,
     SMSG_PET_RENAMEABLE                              = 0x00,
     CMSG_REQUEST_VEHICLE_EXIT                        = 0x00,
     CMSG_REQUEST_PLAYER_VEHICLE_EXIT                 = 0x00,
@@ -1212,7 +1212,7 @@ enum Opcodes
     CMSG_CHECK_LOGIN_CRITERIA                        = 0x00,
     SMSG_SERVER_BUCK_DATA_START                      = 0x00,
     CMSG_QUERY_VEHICLE_STATUS                        = 0x00,
-    SMSG_BATTLEGROUND_INFO_THROTTLED                 = 0x00,
+    SMSG_BATTLEGROUND_INFO_THROTTLED                 = 0x01630,
     SMSG_PLAYER_VEHICLE_DATA                         = 0x02503,
     CMSG_PLAYER_VEHICLE_ENTER                        = 0x00,
     CMSG_EJECT_PASSENGER                             = 0x00,
@@ -1235,7 +1235,7 @@ enum Opcodes
     CMSG_LEARN_PREVIEW_TALENTS                       = 0x00,
     CMSG_LEARN_PREVIEW_TALENTS_PET                   = 0x00,
     SMSG_ARENA_OPPONENT_UPDATE                       = 0x00,
-    SMSG_ARENA_TEAM_CHANGE_FAILED_QUEUED             = 0x00,
+    SMSG_ARENA_TEAM_CHANGE_FAILED_QUEUED             = 0x00D87,
     SMSG_MULTIPLE_PACKETS                            = 0x00, /* old 0x07EA4 */
     SMSG_MOVE_GRAVITY_DISABLE                        = 0x00,
     CMSG_MOVE_GRAVITY_DISABLE_ACK                    = 0x00,
@@ -1312,7 +1312,7 @@ enum Opcodes
     SMSG_BATTLEGROUND_WAIT_JOIN                      = 0x00,
     CMSG_BATTLEGROUND_PORT_AND_LEAVE                 = 0x00,
     SMSG_GUILD_XP_LIMIT                              = 0x00,
-    CMSG_GUILD_QUERY_NEWS                            = 0x00,
+    CMSG_GUILD_QUERY_NEWS                            = 0x05589,
     CMSG_GUILD_QUERY_XP                              = 0x00,
     SMSG_GUILD_XP                                    = 0x01C94,
     SMSG_GUILD_UPDATE_PARTY_STATE                    = 0x00,
@@ -1324,7 +1324,7 @@ enum Opcodes
     CMSG_GROUP_SET_ROLES                             = 0x00,
     SMSG_UNKNOWN_65508                               = 0x00,
     SMSG_GUILD_ACHIEVEMENT_EARNED                    = 0x00,
-    SMSG_GUILD_ACHIEVEMENT_DATA                      = 0x00,
+    SMSG_GUILD_ACHIEVEMENT_DATA                      = 0x00CB1,
     CMSG_UI_TIME_REQUEST                             = 0x00,
     SMSG_UI_TIME                                     = 0x00,
     CMSG_RETURN_TO_GRAVEYARD                         = 0x00, /* old 0x06603 */

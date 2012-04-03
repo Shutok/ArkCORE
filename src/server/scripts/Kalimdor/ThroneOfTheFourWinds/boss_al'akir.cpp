@@ -19,7 +19,7 @@
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  */
  
- /*--Script By Shutok, Al'akir: 0% done, sure this will be a sh*t--*/
+ /*--Script By Shutok, Al'akir: 2% done, sure this will be a sh*t--*/
  
  #include "ScriptPCH.h"
 
@@ -29,15 +29,21 @@ enum Spells
     SPELL_ACID_RAIN_10H  = 93280,
     SPELL_ACID_RAIN_25   = 93279,
     SPELL_ACID_RAIN_25H  = 93281,
-    SPELL_BERSERK        =
-    SPELL_ELECTROCUTE    =
-    SPELL_LIGHTNING_ROD  =
-    SPELL_STATIC_SHOCK   =
-    SPELL_WIND_BRUST_10  =
-    SPELL_WIND_BRUST_10H =
-    SPELL_WIND_BRUST_25  =
-    SPELL_WIND_BRUST_25H = 
-    
+    SPELL_BERSERK        = 47008,
+    SPELL_ELECTROCUTE    = 88427,
+    SPELL_LIGHTNING_ROD  = 89668,
+    SPELL_STATIC_SHOCK   = 87873,
+    SPELL_WIND_BRUST_10  = 87770,
+    SPELL_WIND_BRUST_10H = 93262,
+    SPELL_WIND_BRUST_25  = 93261,
+    SPELL_WIND_BRUST_25H = 93263,   
+};
+
+enum Al'akirYells //Sorry for the poor names, idk about this guy.
+{
+    SAY_AGGRO
+    SAY_SLAY
+    SAY_DEATH
 };
 
 class boss_al'akir : public CreatureScript
@@ -60,14 +66,20 @@ class boss_al'akir : public CreatureScript
 
 			void KilledUnit(Unit * /*victim*/)
 			{
+				DoScriptText(SAY_SLAY,me);
 			}
 			
 			void JustDied(Unit * /*victim*/)
 			{
+				DoScriptText(SAY_DEATH,me);
+				_JustDied();
 			}
 
 			void EnterCombat(Unit * /*who*/)
 			{
+				_EnterCombat();
+				DoScriptText(SAY_AGGRO,me);
+				instance->SetBossState(DATA_ALAKIR, IN_PROGRESS);
 			}
 
 			void UpdateAI(const uint32 uiDiff)

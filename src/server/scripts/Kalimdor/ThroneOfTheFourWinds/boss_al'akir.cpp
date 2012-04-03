@@ -18,3 +18,73 @@
  * You should have received a copy of the GNU General Public License along
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  */
+ 
+ /*--Script By Shutok, Al'akir: 0% done, sure this will be a sh*t--*/
+ 
+ #include "ScriptPCH.h"
+
+enum Spells
+{
+    SPELL_ACID_RAIN_10   = 88301,
+    SPELL_ACID_RAIN_10H  = 93280,
+    SPELL_ACID_RAIN_25   = 93279,
+    SPELL_ACID_RAIN_25H  = 93281,
+    SPELL_BERSERK        =
+    SPELL_ELECTROCUTE    =
+    SPELL_LIGHTNING_ROD  =
+    SPELL_STATIC_SHOCK   =
+    SPELL_WIND_BRUST_10  =
+    SPELL_WIND_BRUST_10H =
+    SPELL_WIND_BRUST_25  =
+    SPELL_WIND_BRUST_25H = 
+    
+};
+
+class boss_al'akir : public CreatureScript
+{
+    public:
+  	boss_al'akir() : CreatureScript("boss_al'akir"){}
+		
+		CreatureAI* GetAI(Creature* creature) const
+		{
+			return new boss_al'akirAI(pCreature);
+		}
+
+		struct boss_al'akirAI : public ScriptedAI
+		{
+			boss_al'akirAI(Creature *c) : ScriptedAI(c) {}
+			
+			void Reset()
+			{
+			}
+
+			void KilledUnit(Unit * /*victim*/)
+			{
+			}
+			
+			void JustDied(Unit * /*victim*/)
+			{
+			}
+
+			void EnterCombat(Unit * /*who*/)
+			{
+			}
+
+			void UpdateAI(const uint32 uiDiff)
+			{
+				if (!me->getVictim())
+				{
+				}
+				
+				if (!UpdateVictim())
+					return;
+
+			DoMeleeAttackIfReady();
+			}
+		};
+};
+
+void AddSC_boss_al'akir()
+{
+    new boss_al'akir();
+}

@@ -39,29 +39,31 @@ enum Spells
     SPELL_WIND_BRUST_25H = 93263,   
 };
 
-enum Al'akirYells //Sorry for the poor names, idk about this guy.
+enum AlakirYells //Sorry for the poor names, idk about this guy.
 {
     SAY_AGGRO
     SAY_SLAY
     SAY_DEATH
 };
 
-class boss_al'akir : public CreatureScript
+class boss_alakir : public CreatureScript
 {
     public:
-  	boss_al'akir() : CreatureScript("boss_al'akir"){}
+  	boss_alakir() : CreatureScript("boss_alakir"){}
 		
 		CreatureAI* GetAI(Creature* creature) const
 		{
-			return new boss_al'akirAI(pCreature);
+			return new boss_alakirAI(pCreature);
 		}
 
-		struct boss_al'akirAI : public ScriptedAI
+		struct boss_alakirAI : public ScriptedAI
 		{
-			boss_al'akirAI(Creature *c) : ScriptedAI(c) {}
+			boss_alakirAI(Creature *c) : ScriptedAI(c) {}
 			
 			void Reset()
 			{
+				if (instance)
+                                    instance->SetData(DATA_ALAKIR_EVENT, NOT_STARTED);
 			}
 
 			void KilledUnit(Unit * /*victim*/)
@@ -73,13 +75,16 @@ class boss_al'akir : public CreatureScript
 			{
 				DoScriptText(SAY_DEATH,me);
 				_JustDied();
+				if (instance)
+                                    instance->SetData(DATA_RELIQUARYOFSOULSEVENT, DONE);
 			}
 
 			void EnterCombat(Unit * /*who*/)
 			{
 				_EnterCombat();
 				DoScriptText(SAY_AGGRO,me);
-				instance->SetBossState(DATA_ALAKIR, IN_PROGRESS);
+				if (instance)
+				    instance->SetBossState(DATA_ALAKIR, IN_PROGRESS);
 			}
 
 			void UpdateAI(const uint32 uiDiff)
@@ -96,7 +101,7 @@ class boss_al'akir : public CreatureScript
 		};
 };
 
-void AddSC_boss_al'akir()
+void AddSC_boss_alakir()
 {
-    new boss_al'akir();
+    new boss_alakir();
 }

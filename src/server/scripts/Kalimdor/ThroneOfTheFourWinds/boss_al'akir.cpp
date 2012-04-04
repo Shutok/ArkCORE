@@ -46,6 +46,13 @@ enum AlakirYells //Sorry for the poor names, idk about this guy.
     SAY_DEATH
 };
 
+enum ePhase
+{
+    PHASE_ONE   = 1,
+    PHASE_TWO   = 2,
+    PHASE_THREE = 3,
+};
+
 class boss_alakir : public CreatureScript
 {
     public:
@@ -62,8 +69,7 @@ class boss_alakir : public CreatureScript
 			
 			void Reset()
 			{
-				if (instance)
-                                    instance->SetData(DATA_ALAKIR_EVENT, NOT_STARTED);
+                                instance->SetData(DATA_ALAKIR, NOT_STARTED);
 			}
 
 			void KilledUnit(Unit * /*victim*/)
@@ -75,16 +81,14 @@ class boss_alakir : public CreatureScript
 			{
 				DoScriptText(SAY_DEATH,me);
 				_JustDied();
-				if (instance)
-                                    instance->SetData(DATA_RELIQUARYOFSOULSEVENT, DONE);
+                                instance->SetData(DATA_ALAKIR DONE);
 			}
 
 			void EnterCombat(Unit * /*who*/)
 			{
 				_EnterCombat();
 				DoScriptText(SAY_AGGRO,me);
-				if (instance)
-				    instance->SetBossState(DATA_ALAKIR, IN_PROGRESS);
+				instance->SetBossState(DATA_ALAKIR, IN_PROGRESS);
 			}
 
 			void UpdateAI(const uint32 uiDiff)

@@ -22,7 +22,7 @@
  /*--Script By Shutok, Al'akir: 2% done, sure this will be a sh*t--*/
  
  #include "ScriptPCH.h"
- #include "bastion_of_twilight.h"
+ #include "throne_of_the_four_winds.h"
 
 enum Spells
 {
